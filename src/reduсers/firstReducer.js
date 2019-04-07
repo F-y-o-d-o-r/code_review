@@ -1,24 +1,22 @@
-import { LOGGED_IN } from '../actions/actionsTypes';
+import { LOGGED_IN, LOGGED_OUT } from '../actions/actionsTypes';
 
 let initialState = [
   {
-    one: 'test of one'
+    one: 'test of one',
+    test: ''
   }
 ];
 
 export default function logginCheck(state = initialState, action) {
-  // switch (action.type) {
-  //   case LOGGED_IN:
-  //     return {
-  //       initialState: [
-  //         ...state,
-  //         {
-  //           newSate: action.text
-  //         }
-  //       ]
-  //     };
-  //   default:
-  //     return state;
-  // }
-  return state;
+  switch (action.type) {
+    case LOGGED_IN:
+      return [
+        ...state,
+        {
+          test: action.name
+        }
+      ];
+    default:
+      return state;
+  }
 }
