@@ -7,17 +7,18 @@ let initialState = [
 ];
 
 export default function logginCheck(state = initialState, action) {
-  switch (action.type) {
-    case LOGGED_IN:
-      return Object.assign({}, state, {
-        todos: [
-          ...state,
-          {
-            text: action.text
-          }
-        ]
-      });
-    default:
-      return state;
-  }
+  // switch (action.type) {
+  //   case LOGGED_IN:
+  //     return {
+  //       initialState: [
+  //         ...state,
+  //         {
+  //           newSate: action.text
+  //         }
+  //       ]
+  //     };
+  //   default:
+  //     return state;
+  // }
+  return state;
 }
