@@ -1,15 +1,17 @@
 # Тестовое задание и code-review для новичков (frontend, react)
 
-TZ #1, v.2.0 (образец readme)
-О себе
-Работаю фронтенд разработчиком 1.5 года, React изучал около двух недель => один сайт (<https://fyodor.pp.ua/>) + 1.5 месяца на приложение на React Native (<https://drive.google.com/file/d/14cWUiowDiszsuiSkYwdAZYm9AGpusH-6/view?usp=drive_open)>
-Про приложение
-<!-- -выполнен базовый функционал
--использованы react-hooks
--оформление
--demo (ссылка) -->
+## О себе  
 
-## Задание
+Работаю фронтенд разработчиком 1.5 года,  
+React изучал около двух недель => один сайт (<https://fyodor.pp.ua/>)  
++1.5 месяца на приложение на React Native (<https://drive.google.com/file/d/14cWUiowDiszsuiSkYwdAZYm9AGpusH-6/view?usp=drive_open)>
+Про приложение  
+-выполнен базовый функционал  
+-использованы react-hooks  
+-оформление  
+-demo (ссылка)
+
+### Задание
 
 Ключевой игрок - React. Задание подходит новичкам, не подходит опытным разработчикам [1].
 [1] - для тех, кто с легкостью пишет на JS и React, предлагаем выполнить данное ТЗ на TypeScript и Reach router. А также вы можете дополнить выполнение Docker-
