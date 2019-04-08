@@ -13,6 +13,10 @@ class HeaderMenu extends Component {
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
     if (name === 'news') {
+      this.props.dispatch({
+        type: 'TAKE_DATA',
+        data: 1
+      });
     }
   };
 

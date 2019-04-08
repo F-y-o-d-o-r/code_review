@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class NewsScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true };
   }
   componentDidMount() {
     // let data = fetch('https://jsonplaceholder.typicode.com/photos')
@@ -14,7 +13,8 @@ class NewsScreen extends Component {
 
   render() {
     let { logined } = this.props.logined;
-    if (logined) {
+    console.log(logined);
+    if (!logined) {
       return <h1>Loading...</h1>;
     }
     return (

@@ -7,7 +7,8 @@ let initialState = [
 ];
 let initialState2 = [
   {
-    logined: true
+    logined: false,
+    data: ''
   }
 ];
 
@@ -36,9 +37,9 @@ export function dataGet(state = initialState2, action) {
   switch (action.type) {
     case TAKE_DATA:
       return [
-        ...state,
         {
-          data: action.data
+          data: action.data,
+          logined: true
         }
       ];
     default:
