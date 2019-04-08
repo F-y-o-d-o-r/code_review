@@ -12,11 +12,11 @@ class NewsScreen extends Component {
   }
 
   render() {
-    let { logined } = this.props.logined;
-    console.log(logined);
-    if (!logined) {
-      return <h1>Loading...</h1>;
-    }
+    // let { logined } = this.props.logined;
+    // console.log(logined);
+    // if (!logined) {
+    //   return <h1>Loading...</h1>;
+    // }
     return (
       <div>
         <h1>news</h1>

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { logginCheck, dataGet } from './firstReducer';
+import { logging } from './loginReduser';
+import { dataGet } from './dataReduser';
 
 const rootReducer = combineReducers({
-  logginCheck,
+  logging,
   dataGet
 });
 

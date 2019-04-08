@@ -13,10 +13,11 @@ class HeaderMenu extends Component {
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
     if (name === 'news') {
-      this.props.dispatch({
-        type: 'TAKE_DATA',
-        data: 1
-      });
+      // this.props.dispatch({
+      //   type: 'TAKE_DATA',
+      //   data: 1
+      // });
+      this.props.takeData();
     }
   };
 
@@ -60,6 +61,15 @@ class HeaderMenu extends Component {
 const mapStateToProps = (state, ownProps) => ({
   state
 });
-const mapDispatchToProps = (dispatch) => {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    takeData: () => {
+      dispatch({
+        type: 'TAKE_DATA',
+        data: 1
+      });
+    }
+  };
+};
 
-export default connect(mapStateToProps)(HeaderMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderMenu);
