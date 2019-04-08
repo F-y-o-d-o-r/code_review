@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { Button, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
-export default class HeaderMenu extends Component {
-  state = {
-    activeItem: 'main'
-  };
+class HeaderMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeItem: 'main' };
+  }
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
+    if (name === 'news') {
+    }
   };
 
   render() {
     const { activeItem } = this.state;
-    console.log(this.props);
     return (
       <Menu>
         <Menu.Item>
@@ -48,3 +52,10 @@ export default class HeaderMenu extends Component {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  state
+});
+const mapDispatchToProps = (dispatch) => {};
+
+export default connect(mapStateToProps)(HeaderMenu);

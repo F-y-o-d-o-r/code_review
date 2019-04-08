@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
-import logginCheck from './firstReducer';
+import { logginCheck, dataGet } from './firstReducer';
 
 const rootReducer = combineReducers({
-  logginCheck
+  logginCheck,
+  dataGet
 });
 
 export default rootReducer;
