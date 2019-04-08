@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store';
-import Component1 from './components/Component1';
+import { Container } from 'semantic-ui-react';
+import RootComponent from './components/RootComponent';
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Component1 />
+        <Container>
+          <RootComponent />
+        </Container>
       </Provider>
     );
   }

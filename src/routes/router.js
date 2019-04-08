@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import MainScreen from '../components/MainScreen';
+
 function Index() {
   return <h2>Home</h2>;
 }
