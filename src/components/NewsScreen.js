@@ -7,7 +7,7 @@ class NewsScreen extends Component {
   }
 
   render() {
-    console.log(this.props.state.dataGet.data);
+    // console.log(this.props);
     if (!this.props.state.dataGet.data) {
       return <h1>Loading...</h1>;
     }

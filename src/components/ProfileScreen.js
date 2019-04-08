@@ -6,9 +6,11 @@ class ProfileScreen extends React.Component {
   state = {
     logined: false
   };
+  componentDidMount() {}
+
   render() {
-    let { logined } = this.props.logined;
-    if (logined) {
+    // console.log(this.props);
+    if (false) {
       return <Redirect to={'/login'} />;
     }
     return (
@@ -20,7 +22,13 @@ class ProfileScreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  logined: state.dataGet[0]
+  // logined: state.dataGet[0]
 });
+const mapDispatchToProps = (dispatch) => {
+  return dispatch({
+    type: 'TAKE_DATA',
+    payload: 11
+  });
+};
 
-export default connect(mapStateToProps)(ProfileScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
