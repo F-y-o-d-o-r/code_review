@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { takeData } from '../actions/dataAction';
+
 class NewsScreen extends Component {
   componentDidMount() {
-    this.props.onOpen();
+    this.props.onOpen(111111);
   }
 
   render() {
@@ -22,15 +24,22 @@ class NewsScreen extends Component {
 const mapStateToProps = (state, ownProps) => ({
   state: state
 });
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onOpen: () => {
+//       fetch('https://jsonplaceholder.typicode.com/photos').then((response) => response.json()).then((json) =>
+//         dispatch({
+//           type: 'TAKE_DATA',
+//           payload: json
+//         })
+//       );
+//     }
+//   };
+// };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onOpen: () => {
-      fetch('https://jsonplaceholder.typicode.com/photos').then((response) => response.json()).then((json) =>
-        dispatch({
-          type: 'TAKE_DATA',
-          payload: json
-        })
-      );
+    onOpen: (id) => {
+      dispatch(takeData(id));
     }
   };
 };
