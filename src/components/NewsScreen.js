@@ -5,7 +5,7 @@ import { takeData } from '../actions/dataAction';
 
 class NewsScreen extends Component {
   componentDidMount() {
-    this.props.onOpen(111111);
+    this.props.onOpen();
   }
 
   render() {
@@ -38,8 +38,10 @@ const mapStateToProps = (state, ownProps) => ({
 // };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onOpen: (id) => {
-      dispatch(takeData(id));
+    onOpen: () => {
+      fetch('https://jsonplaceholder.typicode.com/photos')
+        .then((response) => response.json())
+        .then((json) => dispatch(takeData(json)));
     }
   };
 };
