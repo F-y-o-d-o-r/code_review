@@ -5,7 +5,6 @@ import { login } from '../actions/loginAction';
 import HeaderMenu from './HeaderMenu';
 
 const RootComponent = (props) => {
-  console.log(props);
   return <HeaderMenu nav={props} />;
 };
 

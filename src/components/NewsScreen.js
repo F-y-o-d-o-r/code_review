@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class NewsScreen extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
-    // let data = fetch('https://jsonplaceholder.typicode.com/photos')
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json));
+    this.props.onOpen();
   }
 
   render() {
-    // let { logined } = this.props.logined;
-    // console.log(logined);
-    // if (!logined) {
-    //   return <h1>Loading...</h1>;
-    // }
+    console.log(this.props.state.dataGet.data);
+    if (!this.props.state.dataGet.data) {
+      return <h1>Loading...</h1>;
+    }
     return (
       <div>
         <h1>news</h1>
@@ -26,13 +20,18 @@ class NewsScreen extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  logined: state.dataGet[0]
+  state: state
 });
 const mapDispatchToProps = (dispatch) => {
   return {
-    // loggedIn: (state) => {
-    //   dispatch(loggedIn(state));
-    // }
+    onOpen: () => {
+      fetch('https://jsonplaceholder.typicode.com/photos').then((response) => response.json()).then((json) =>
+        dispatch({
+          type: 'TAKE_DATA',
+          payload: json
+        })
+      );
+    }
   };
 };
 
