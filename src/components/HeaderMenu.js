@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class HeaderMenu extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { activeItem: 'main' };
-  // }
   componentDidMount() {
     let thisUrl = document.location.pathname.slice(1);
     this.setState({
@@ -21,12 +17,12 @@ class HeaderMenu extends Component {
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
     if (name === 'news') {
-      this.props.takeData();
+      // this.props.takeData();
     }
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { activeItem } = this.state;
     return (
       <Menu>
@@ -68,12 +64,12 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = (dispatch) => {
   return {
-    takeData: () => {
-      dispatch({
-        type: 'TAKE_DATA',
-        data: 1
-      });
-    }
+    // takeData: () => {
+    //   dispatch({
+    //     type: 'TAKE_DATA',
+    //     data: 1
+    //   });
+    // }
   };
 };
 
