@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 class ProfileScreen extends React.Component {
   render() {
@@ -9,9 +10,17 @@ class ProfileScreen extends React.Component {
       return <Redirect to={'/login'} />;
     }
     return (
-      <div>
-        <h1>profile screen</h1>
-      </div>
+      <Card>
+        <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
+        <Card.Content>
+          <Card.Header>Admin</Card.Header>
+        </Card.Content>
+        <Card.Content extra>
+          <a target="_blank" href="http://fyodor.pp.ua">
+            http://fyodor.pp.ua
+          </a>
+        </Card.Content>
+      </Card>
     );
   }
 }
