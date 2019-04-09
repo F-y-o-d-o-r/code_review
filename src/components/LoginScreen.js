@@ -20,7 +20,7 @@ class Login extends Component {
     const { name, pass } = this.state;
     return (
       <Segment placeholder>
-        <Form onSubmit={() => this.props.handleSubmit(this.state)}>
+        <Form onSubmit={() => this.props.handleSubmit(this.state.name, this.state.pass)}>
           <Form.Group>
             <Form.Field>
               <label>Name</label>
@@ -45,10 +45,10 @@ const mapStateToProps = (state, ownProps) => ({
   state: state
 });
 
-const mapDispatchToProps = (dispatch, thiss) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    handleSubmit: () => {
-      console.log(thiss);
+    handleSubmit: (name, pass) => {
+      console.log(name, pass);
       // thiss.setState({ pass: '', name: '' });
     }
   };

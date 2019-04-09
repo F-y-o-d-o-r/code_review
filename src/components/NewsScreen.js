@@ -23,6 +23,7 @@ class NewsScreen extends Component {
     ));
 
     return <div className="news-wrapper">{Items}</div>;
+    // return <h1>h1</h1>;
   }
 }
 
@@ -33,9 +34,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     onOpen: () => {
-      fetch('https://jsonplaceholder.typicode.com/photos')
-        .then((response) => response.json())
-        .then((json) => dispatch(takeData(json)));
+      dispatch(takeData());
     }
   };
 };
