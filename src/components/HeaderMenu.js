@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import { Button, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { menuChange } from '../actions/menuAction';
 
 class HeaderMenu extends Component {
   componentDidMount() {
-    let thisUrl = document.location.pathname.slice(1);
-    if (thisUrl === '') {
-      thisUrl = 'main';
-    }
     this.setState({
-      activeItem: thisUrl
+      activeItem: this.props.state.menuChange.place
     });
   }
   state = {
@@ -19,40 +16,40 @@ class HeaderMenu extends Component {
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
-    if (name === 'news') {
-      // this.props.takeData();
-    }
   };
 
   render() {
-    // console.log(this.props);
     const { activeItem } = this.state;
     return (
       <Menu>
         <Menu.Item>
           <Link to="/">
-            <Button name="main" active={activeItem === 'main'} onClick={this.handleItemClick}>
+            <Button name="main" active={activeItem === 'main'} onClick={() => this.props.handleItemClick('main')}>
               Main
             </Button>
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/login">
-            <Button name="login" active={activeItem === 'login'} onClick={this.handleItemClick}>
+            <Button name="login" active={activeItem === 'login'} onClick={() => this.props.handleItemClick('login')}>
               Log-in
             </Button>
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/news">
-            <Button name="news" active={activeItem === 'news'} onClick={this.handleItemClick}>
+            <Button name="news" active={activeItem === 'news'} onClick={() => this.props.handleItemClick('news')}>
               News
             </Button>
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link to="/profile">
-            <Button name="profile" active={activeItem === 'profile'} onClick={this.handleItemClick}>
+            <Button
+              name="profile"
+              active={activeItem === 'profile'}
+              onClick={() => this.props.handleItemClick('profile')}
+            >
               Profile
             </Button>
           </Link>
@@ -67,12 +64,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = (dispatch) => {
   return {
-    // takeData: () => {
-    //   dispatch({
-    //     type: 'TAKE_DATA',
-    //     data: 1
-    //   });
-    // }
+    handleItemClick: (place) => {
+      dispatch(menuChange(place));
+    }
   };
 };
 

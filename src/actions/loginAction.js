@@ -1,4 +1,4 @@
-import { LOGGED_IN, LOGGED_OUT, LOGIN_ERROR } from './actionsTypes';
+import { LOGGED_IN, LOGGED_OUT, LOGIN_ERROR, MENU_CHANGE } from './actionsTypes';
 
 export function loginCheck(name, pass, history) {
   return (dispatch) => {

@@ -19,6 +19,5 @@ class ProfileScreen extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   state: state
 });
-const mapDispatchToProps = (dispatch) => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
+export default connect(mapStateToProps)(ProfileScreen);
