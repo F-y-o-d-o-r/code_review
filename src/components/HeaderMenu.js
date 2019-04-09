@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class HeaderMenu extends Component {
   componentDidMount() {
     let thisUrl = document.location.pathname.slice(1);
-    if (thisUrl == '') {
+    if (thisUrl === '') {
       thisUrl = 'main';
     }
     this.setState({

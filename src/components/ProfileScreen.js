@@ -3,14 +3,9 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class ProfileScreen extends React.Component {
-  state = {
-    logined: false
-  };
-  componentDidMount() {}
-
   render() {
-    // console.log(this.props);
-    if (false) {
+    const { login } = this.props.state.logging;
+    if (!login) {
       return <Redirect to={'/login'} />;
     }
     return (
@@ -22,13 +17,8 @@ class ProfileScreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  // logined: state.dataGet[0]
+  state: state
 });
-const mapDispatchToProps = (dispatch) => {
-  // return dispatch({
-  //   type: 'TAKE_DATA',
-  //   payload: 11
-  // });
-};
+const mapDispatchToProps = (dispatch) => {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);

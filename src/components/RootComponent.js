@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../actions/loginAction';
-
+import { checkStorage } from '../actions/storageAction';
 import HeaderMenu from './HeaderMenu';
 
-const RootComponent = (props) => {
-  return <HeaderMenu />;
-};
+class RootComponent extends React.Component {
+  componentDidMount() {
+    this.props.checkStorage();
+  }
+  render() {
+    return <HeaderMenu />;
+  }
+}
+
+//! почему не отработало???
+// const RootComponent = (props) => {
+//   useEffect(() => {
+//     checkStorage();
+//   });
+//   return <HeaderMenu />;
+// };
+//! почему не отработало???
 
 const mapStateToProps = (state, ownProps) => ({
   state,
@@ -14,8 +27,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = (dispatch) => {
   return {
-    loggedIn: (state) => {
-      dispatch(login(state));
+    checkStorage: (state) => {
+      dispatch(checkStorage());
     }
   };
 };

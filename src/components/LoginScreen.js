@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Form, Segment } from 'semantic-ui-react';
+import { Form, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { loginCheck, logout } from '../actions/loginAction';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -18,24 +20,38 @@ class Login extends Component {
 
   render() {
     const { name, pass } = this.state;
+    const { login, error } = this.props.state.logging;
     return (
       <Segment placeholder>
-        <Form onSubmit={() => this.props.handleSubmit(this.state.name, this.state.pass)}>
-          <Form.Group>
-            <Form.Field>
-              <label>Name</label>
-              <Form.Input placeholder="Name" name="name" value={name} onChange={this.handleChange} />
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <Form.Input placeholder="pass" name="pass" value={pass} onChange={this.handleChange} />
-            </Form.Field>
-            <Form.Field>
-              <label style={{ opacity: 0 }}>Submit</label>
-              <Form.Button content="Submit" />
-            </Form.Field>
-          </Form.Group>
-        </Form>
+        {!login ? (
+          <Form onSubmit={() => this.props.handleSubmit(this.state.name, this.state.pass, this.props.history)}>
+            <Form.Group>
+              <Form.Field>
+                <label>Name</label>
+                <Form.Input placeholder="Name" name="name" value={name} onChange={this.handleChange} />
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <Form.Input placeholder="pass" name="pass" value={pass} onChange={this.handleChange} />
+              </Form.Field>
+              <Form.Field>
+                <label style={{ opacity: 0 }}>Login</label>
+                <Form.Button content="Login" />
+              </Form.Field>
+            </Form.Group>
+            <h6>{error}</h6>
+            <span>HINT: Admin - 12345</span>
+          </Form>
+        ) : (
+          <Form onSubmit={() => this.props.handleSubmitLogout()}>
+            <Form.Group>
+              <Form.Field>
+                <label style={{ opacity: 0 }}>Logout</label>
+                <Form.Button content="Logout" />
+              </Form.Field>
+            </Form.Group>
+          </Form>
+        )}
       </Segment>
     );
   }
@@ -47,9 +63,11 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSubmit: (name, pass) => {
-      console.log(name, pass);
-      // thiss.setState({ pass: '', name: '' });
+    handleSubmit: (name, pass, history) => {
+      dispatch(loginCheck(name, pass, history));
+    },
+    handleSubmitLogout: () => {
+      dispatch(logout());
     }
   };
 };
