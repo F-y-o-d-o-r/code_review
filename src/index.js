@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.sass';
 import 'semantic-ui-css/semantic.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './App.sass';
 
 import MainScreen from './components/MainScreen';
 import LoginScreen from './components/LoginScreen';

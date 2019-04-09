@@ -1,6 +1,6 @@
-import React, { Component, ListItem } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 import { takeData } from '../actions/dataAction';
 
@@ -12,27 +12,17 @@ class NewsScreen extends Component {
     if (!this.props.state.dataGet.data) {
       return <h1>Loading...</h1>;
     }
-    const data = this.props.state.dataGet.data.slice(0, 50);
+    const data = this.props.state.dataGet.data.slice(0, 51);
     const Items = data.map((item) => (
       <Card key={item.id}>
-        <Image src="{/images/avatar/large/matthew.png}" />
+        <Image src={item.url} />
         <Card.Content>
-          <Card.Header>Matthew</Card.Header>
-          <Card.Meta>
-            <span className="date">Joined in 2015</span>
-          </Card.Meta>
-          <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name="user" />
-            22 Friends
-          </a>
+          <Card.Description>{item.title}</Card.Description>
         </Card.Content>
       </Card>
     ));
 
-    return <div>{Items}</div>;
+    return <div className="news-wrapper">{Items}</div>;
   }
 }
 

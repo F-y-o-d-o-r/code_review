@@ -25,10 +25,10 @@ const mapStateToProps = (state, ownProps) => ({
   // logined: state.dataGet[0]
 });
 const mapDispatchToProps = (dispatch) => {
-  return dispatch({
-    type: 'TAKE_DATA',
-    payload: 11
-  });
+  // return dispatch({
+  //   type: 'TAKE_DATA',
+  //   payload: 11
+  // });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
