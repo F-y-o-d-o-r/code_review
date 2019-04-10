@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { loginCheck, logout } from '../actions/loginAction';
-import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {

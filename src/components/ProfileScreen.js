@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 class ProfileScreen extends React.Component {
   render() {

@@ -5,21 +5,10 @@ import { connect } from 'react-redux';
 import { menuChange } from '../actions/menuAction';
 
 class HeaderMenu extends Component {
-  componentDidMount() {
-    this.setState({
-      activeItem: this.props.state.menuChange.place
-    });
-  }
-  state = {
-    activeItem: 'main'
-  };
-
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
-  };
+  state = {};
 
   render() {
-    const { activeItem } = this.state;
+    var activeItem = this.props.state.menuChange.place;
     return (
       <Menu>
         <Menu.Item>

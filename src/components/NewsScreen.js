@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, Image } from 'semantic-ui-react';
-
 import { takeData } from '../actions/dataAction';
 
 class NewsScreen extends Component {
@@ -21,9 +20,7 @@ class NewsScreen extends Component {
         </Card.Content>
       </Card>
     ));
-
     return <div className="news-wrapper">{Items}</div>;
-    // return <h1>h1</h1>;
   }
 }
 
