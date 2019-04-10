@@ -1,13 +1,10 @@
-import { LOGGED_IN } from './actionsTypes';
+import { login } from './loginAction';
 
 export function checkStorage(thisUrl) {
   return (dispatch) => {
     let storage = localStorage.getItem('login');
     if (storage) {
-      dispatch({
-        type: LOGGED_IN,
-        payload: true
-      });
+      dispatch(login());
     }
   };
 }

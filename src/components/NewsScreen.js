@@ -20,7 +20,11 @@ class NewsScreen extends Component {
         </Card.Content>
       </Card>
     ));
-    return <div className="news-wrapper">{Items}</div>;
+    return (
+      <div className="news-wrapper" onLoad={console.log('loaded')}>
+        {Items}
+      </div>
+    );
   }
 }
 

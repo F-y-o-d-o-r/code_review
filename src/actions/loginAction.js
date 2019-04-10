@@ -18,6 +18,12 @@ export function loginCheck(name, pass, history) {
     }
   };
 }
+export function login() {
+  return {
+    type: LOGGED_IN,
+    payload: true
+  };
+}
 
 export function logout(index) {
   return (dispatch) => {
