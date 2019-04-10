@@ -11,8 +11,7 @@ React изучал около двух недель => один сайт (<https
 - [X] выполнен базовый функционал  
 - [ ] использованы react-hooks  
 - [X] оформление - semantic-ui-react  
-- [X] demo (ссылка)
-
+- [X] demo <http://code-review.ititi.pp.ua/>
 
 #### Задание
 
