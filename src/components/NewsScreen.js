@@ -29,7 +29,7 @@ class NewsScreen extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  state: state
+  state: state //! to fix!
 });
 
 const mapDispatchToProps = (dispatch) => {
